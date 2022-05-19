@@ -22,3 +22,14 @@ When I open the application...
     -Again, use fetch to get, store, and display the user's selected data
 -Display the "weather image" for each of the five-days to the user.
 
+
+TO DO
+-Add CSS classes that scale for UV Index (Good, Medium, Bad)
+-Append name of city to "currentDay" weather
+-Append temp, humidity, wind, and UV for currentDay weather
+-Append temp, humidity, wind, and UV for 5 day forecast
+-Append images of current weather to current and 5-day forecasts
+-Add CSS styling and clean-up all around
+
+**** FIGURE OUT HOW TO FETCH THE API DATA PROPERLY ****
+- Something isn't working with my links (getting an error404).
