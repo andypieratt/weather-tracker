@@ -1,0 +1,24 @@
+As a user,
+
+When I open the application...
+01- I am presented with a title and header
+02- A search-bar feature to search for various cities and their weather
+03- A section displaying "today's" current weather and prompts
+04- A section highlighting the forecast for the next five days
+05- A footer section
+
+01- Title/Search bar
+-Need and input field for the user
+-Need a search button to query the users search
+-Event Listener/Keydown feature for the search bar to render the user's selected city
+
+03- Current Weather Section
+-Here, I need to display the rendered city and current weather/conditions to the user
+    -Use fetch to and the weather API to display user's city and weather data.
+-Display an image of the current weather to the user.
+
+04- Five-Day Forecast
+-Have some cards that display the weather data for the next five days in the selected city
+    -Again, use fetch to get, store, and display the user's selected data
+-Display the "weather image" for each of the five-days to the user.
+

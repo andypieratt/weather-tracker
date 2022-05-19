@@ -22,7 +22,7 @@
   <!--SEARCH BAR FEATURE-->
   <section class="d-flex justify-content-center border border-primary p-3">
     <form class="d-inline-block" action="/form/submit" method="GET">
-      <input class="search" type="text" name="text" placeholder="Search for a city!">
+      <input id="city-search" class="search" type="text" name="text" placeholder="Search for a city!">
       <button id="search-button">SEARCH</button>
       <ul class="text-center">Recent Searches:
         <!-- <li></li> -->
@@ -31,8 +31,10 @@
   </section>
 
   <!--CITY/DATE AND CURRENT WEATHER DATA-->
-  <section class="border border-primary w-75">
-    <h2>CITY/DATE (PLACEHOLDER)</h2>
+  <section class="border border-primary w-100 my-5 py-5">
+    <h2 class="text-center">CITY/DATE (PLACEHOLDER)</h2>
+    <h3 class="text-center" id="current-date"></h3>
+    <img class="my-3" src="weather img placeholder" alt="image of current weather">
     <ul>
       <li id="temp">Temperature:</li>
       <li id="humidity">Humidity:</li>
@@ -42,6 +44,7 @@
   </section>
 
   <!--FIVE-DAY FORECAST CARDS-->
+  <h3 class="text-center mt-5">Five-Day Forecast</h3>
   <section class="d-flex my-5 justify-content-around">
     <div class="card" style="width: 10rem;">
       <img src="..." class="card-img-top" alt="...">
