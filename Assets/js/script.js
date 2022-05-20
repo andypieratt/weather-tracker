@@ -28,33 +28,46 @@ searchBtn.addEventListener("click", function () {
     .then(function (response) {
       return response.json();
     })
-    .then(function (data) {
-      console.log(data);
+    .then(function (cities) {
+      return cities[0];
+    })
+    .then(function (city) {
+      console.log(city);
 
-      var lat = data[0].lat;
-      var lon = data[0].lon;
-
-      localStorage.setItem("city", userCity);
-      localStorage.setItem("latitude", lat);
-      localStorage.setItem("longitude", lon);
+      localStorage.setItem("city", city.name);
+      localStorage.setItem("latitude", city.lat);
+      localStorage.setItem("longitude", city.lon);
+      getCurrentWeather(city.lat, city.lon);
     });
-
-  // CALLING TO GET THE CURRENT WEATHER INFO ON THE USER'S CITY
-  getCurrentWeather();
 });
 
-function getCurrentWeather() {
-  var lat = localStorage.getItem("lat");
-  var lon = localStorage.getItem("lon");
-  var urlStart = "https://api.openweathermap.org/data/2.5/onecall?";
-  var urlLat = "lat=";
-  var urlLon = "&lon=";
-  var urlEnd =
-    "&exclude=minutely,hourly,daily,alerts&appid=035e64d4cce284ef774e18d498588393";
-  var requestURL = urlStart + urlLat + lat + urlLon + lon + urlEnd;
+function getCurrentWeather(lat, lon) {
+  var urlBase = "https://api.openweathermap.org/data/2.5/onecall";
+  var searchParams = new URLSearchParams({
+    lat,
+    lon,
+    exclude: "minutely,hourly,alerts",
+    units: "imperial",
+    appid: "035e64d4cce284ef774e18d498588393",
+  });
+
+  var requestURL = `${urlBase}?${searchParams}`;
 
   // FETCH REQUEST FOR API DATA
-  fetch(requestURL).then(function (response) {
-    return response.json();
-  });
+  fetch(requestURL)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (rawWeather) {
+      return {
+        current: rawWeather.current,
+        forecast: rawWeather.daily.slice(1, 6),
+      };
+    })
+    .then(function (weather) {
+      console.log(weather);
+      for (const daily of weather.forecast) {
+        console.log(daily);
+      }
+    });
 }
