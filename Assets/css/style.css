@@ -42,3 +42,7 @@ header {
 li {
   list-style: none;
 }
+
+footer {
+  background-color: bisque;
+}
